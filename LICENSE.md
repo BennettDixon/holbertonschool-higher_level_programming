@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © `<2018>` `<Bennett Dixon & Connor Brereton>`
+Copyright © `<2018>` `<Bennett Dixon>`
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
