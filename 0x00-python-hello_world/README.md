@@ -28,16 +28,10 @@ $ sudo apt-get install python3
 
 ## :arrow_down: Installing
 
-Clone the repository into a new directory
-
-```
-$ git clone https://github.com/BennettDixon/holbertonschool-higher_level_programming.git
-```
-
 Compile with the following:
 
 ```
-gcc -Wall -Werror -Wextra -pedantic
+gcc -Wall -Werror -Wextra -pedantic ./0x00-python-hello_world x-main.c filename.c
 ```
 
 ## :blue_book: Authors
