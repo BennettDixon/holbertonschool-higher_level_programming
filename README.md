@@ -44,13 +44,13 @@ gcc -Wall -Werror -Wextra -pedantic
 
 Strictly followed `pep8` style guide. To install
 
-##Regular Ubuntu 14.04 install
+### Regular Ubuntu 14.04 install
 
 ```
 $ sudo apt-get install python3-pep8
 ```
 
-##Using Pip3
+### Using Pip3
 
 Install Pip3
 
@@ -64,7 +64,7 @@ Install Pep8
 $ pip3 install pep8
 ```
 
-Check The Version
+### Check The Version
 
 ```
 $ pep8 --version
