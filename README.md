@@ -38,12 +38,6 @@ Clone the repository into a new directory
 $ git clone https://github.com/BennettDixon/holbertonschool-higher_level_programming.git
 ```
 
-Compile with the following:
-
-```
-gcc -Wall -Werror -Wextra -pedantic
-```
-
 ## :books: Coding Style Tests
 
 Strictly followed `pep8` style guide. To install

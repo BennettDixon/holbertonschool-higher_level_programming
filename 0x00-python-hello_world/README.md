@@ -25,15 +25,6 @@ $ sudo apt-get install git
 $ sudo apt-get install python3
 ```
 
-
-## :arrow_down: Installing
-
-Compile with the following:
-
-```
-gcc -Wall -Werror -Wextra -pedantic ./0x00-python-hello_world x-main.c filename.c
-```
-
 ## :blue_book: Authors
 * **Bennett Dixon** - [@BennettDixon](https://github.com/BennettDixon)
 
