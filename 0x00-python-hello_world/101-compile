@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Compiling $PYFILE ..."
-python -m py_compile $PYFILE
+python3 -m py_compile $PYFILE $PYFILEc
