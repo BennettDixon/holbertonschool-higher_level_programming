@@ -1,6 +1,10 @@
 # :ocean: Python 3.4 Projects :ocean:
 
-In this Python repo I will be completing python assignments at Holberton School. This will also contain personal Python projects, those projects can be found under <code>0xFF-personal_projects</code>. All Holberton Python projects will be found in the <code>0x00-0xEE</code> projects. All code follows <code>pep8</code> style per Holberton specifications. Personal project code will either follow <code>pep8</code> or the new <code>pycodestyle</code>.
+In this Python repo I will be completing python assignments at Holberton School. This will also contain personal Python projects, those projects can be found under <code>0xFF-personal_projects</code>. 
+
+All Holberton Python projects will be found in the <code>0x00-0xEE</code> projects.
+
+All code follows <code>pep8</code> style per Holberton specifications. Personal project code will either follow <code>pep8</code> or the new <code>pycodestyle</code>.
 
 ## :running: Getting Started
 
