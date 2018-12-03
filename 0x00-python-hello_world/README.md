@@ -30,7 +30,7 @@ $ sudo apt-get install python3
 
 ## :mag: License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](holbertonschool-higher_level_programming/LICENSE.md) file for details
 
 
 
