@@ -24,8 +24,11 @@ int main(void)
 
     printf("-----------------\n");
 
-    printf("inserted node: %d\n", (insert_node(&head, 4000))->n);
 
+    printf("inserted node: %d\n", (insert_node(&head, 1024))->n);
+    printf("inserted node: %d\n", (insert_node(&head, 1))->n);
+    printf("inserted node: %d\n", (insert_node(&head, 1))->n);
+    
     print_listint(head);
 
     free_listint(head);
