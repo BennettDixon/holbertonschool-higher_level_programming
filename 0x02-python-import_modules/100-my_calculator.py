@@ -18,4 +18,5 @@ elif sys.argv[2] == '/':
     func = div
 
 result = func(int(sys.argv[1]), int(sys.argv[3]))
-print("{:d} {:s} {:d} = {:d}".format(int(sys.argv[1]), sys.argv[2], int(sys.argv[3]), result))
+print("{:d} {:s} {:d} = {:d}".format(int(sys.argv[1]),
+sys.argv[2], int(sys.argv[3]), result))
