@@ -12,6 +12,7 @@ All code follows <code>pep8</code> style per Holberton specifications. Personal 
 
 * [GCC 4.8.4](https://gcc.gnu.org/gcc-4.8/) - Compiler used
 
+* [Python 3.4](https://www.python.org/download/releases/3.4.0/) - Python Version Used
 
 ## :warning: Prerequisites
 
@@ -20,6 +21,8 @@ All code follows <code>pep8</code> style per Holberton specifications. Personal 
 * Must have repository cloned
 
 * Must have `python3` installed
+
+* Some problems are written in C, those require `gcc`
 
 ```
 $ sudo apt-get install git
