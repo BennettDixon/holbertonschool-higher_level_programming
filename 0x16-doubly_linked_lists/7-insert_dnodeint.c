@@ -63,7 +63,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		}
 		else if (idx == i - 1) /* insert at head or middle */
 		{
-			printf("inserting in head or middle\n");
 			if (temp->prev)
 				temp->prev->next = new_node;
 			else /* head of LL */
