@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <stdlib.h>
 
-#include <stdio.h>
 /**
  * create_dnode - creates a new DLL node with data
  * @n: data to add to node
