@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 /**
- * create_node - creates a new DLL node with data
+ * create_lnode - creates a new DLL node with data
  * @n: data to add to node
  *
  * Return: pointer to newly allocated/populated node
  */
-dlistint_t *create_node(const int n)
+dlistint_t *create_lnode(const int n)
 {
 	dlistint_t *new_node = NULL;
 
@@ -34,7 +34,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *new_node = NULL, *temp = NULL;
 
-	new_node = create_node(n);
+	new_node = create_lnode(n);
 	if (!new_node)
 		return (NULL);
 
