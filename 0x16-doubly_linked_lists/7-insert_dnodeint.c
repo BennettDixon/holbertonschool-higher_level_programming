@@ -25,7 +25,7 @@ dlistint_t *create_dnode(const int n)
 /**
  * insert_dnodeint_at_index - inserts a node at position
  * in a doubly linked list
- * @head: double pointer to the head, so we can modify if needed
+ * @h: double pointer to the head, so we can modify if needed
  * @idx: index to insert new node at
  * @n: data to add to new node
  *
@@ -39,19 +39,14 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node = create_dnode(n);
 	if (!new_node)
 		return (NULL);
-
 	if (!h || !(*h)) /* NULL DLL */
-	{
 		*h = new_node;
-		return (new_node);
-	}
 	else /* DLL exists */
 	{
 		temp = *h;
 		/* advance to pos of idx in DLL */
 		while (idx != i++ && temp->next)
 			temp = temp->next;
-		/* TODO fix insertion at idx 0 and when idx is end of DLL */
 		if (temp->next)
 			new_node->prev = temp->prev;
 		else
@@ -75,9 +70,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			free(new_node);
 			return (NULL);
 		}
-		return (new_node);
 	}
-	/* should never happen, here for compiler */
-	free(new_node);
-	return (NULL);
+	return (new_node);
 }
