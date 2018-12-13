@@ -31,6 +31,8 @@ def roman_to_int(roman_string):
     cur = conv = 0
     holder = []
 
+    if roman_string is None or type(roman_string) is not str:
+        return 0
     for c in roman_string:
         cur = convert_roman(c)
         if len(holder) == 0:
@@ -39,7 +41,7 @@ def roman_to_int(roman_string):
                 conv += cur
             elif cur < cur_max:
                 holder.append(cur)
-            else: # only happens if smaller is starting number
+            else:  # only happens if smaller is starting number
                 # for example: IIX, VXC
                 cur -= conv
                 conv = cur
@@ -55,4 +57,3 @@ def roman_to_int(roman_string):
     if len(holder) != 0:
         conv += sum(holder)
     return conv
-        
