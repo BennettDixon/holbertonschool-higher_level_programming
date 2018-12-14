@@ -35,6 +35,8 @@ def roman_to_int(roman_string):
         return 0
     for c in roman_string:
         cur = convert_roman(c)
+        if cur == -1:
+            return 0
         if len(holder) == 0:
             if cur == cur_max or cur_max == -1:
                 cur_max = cur
