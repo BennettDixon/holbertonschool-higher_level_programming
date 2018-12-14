@@ -41,7 +41,7 @@ def roman_to_int(roman_string):
                 conv += cur
             elif cur < cur_max:
                 holder.append(cur)
-            else:  # only happens if smaller is starting number
+            elif cur > cur_max:  # only happens if smaller is starting number
                 # for example: IIX, VXC
                 cur -= conv
                 conv = cur
