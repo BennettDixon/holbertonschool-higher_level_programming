@@ -7,7 +7,7 @@ class Square:
         size
     some attributes are protected from input.
     """
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """
         initialization function for our square clasee
         """
@@ -77,7 +77,7 @@ class Square:
         """
         validates the position, checking for type errors
         """
-        if type(position) != type((0, 0)):
+        if not isinstance(position, type((0, 0))):
             raise TypeError("position must be a tuple of 2 positive integers")
             return False
         return True
