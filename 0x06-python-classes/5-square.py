@@ -16,10 +16,16 @@ class Square:
 
     @property
     def size(self):
+        """
+        getter for the size property
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """
+        setter for the size property
+        """
         if self.__validate_size(value):
             self.__size = value
 

@@ -8,6 +8,10 @@ class Square:
     some attributes are protected from input.
     """
     def __init__(self, size=0):
+        """
+        the initialization function for the square class
+        checks for input errors for size
+        """
         if type(size) != int:
             raise TypeError("size must be an integer")
         elif size < 0:
