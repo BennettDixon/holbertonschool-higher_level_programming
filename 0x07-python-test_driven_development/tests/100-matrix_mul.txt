@@ -1,0 +1,47 @@
+=================================
+UNIT TESTS FOR 100-matrix_mult.py
+=================================
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+# test a non list
+>>> matrix_mul("test", [[1, 2], [3, 4]])
+Traceback (most recent call last):
+	...
+TypeError: m_a must be a list
+
+# test a non list of lists
+# (using non ints b/c list of lists should be triggered first)
+>>> matrix_mul(["test", "str"], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+	...
+TypeError: m_a must be a list of lists
+
+# test empty list
+>>> matrix_mul([[1, 2], [3, 4]], [])
+Traceback (most recent call last):
+	...
+ValueError: m_b can't be empty
+
+# test empty list
+>>> matrix_mul([[]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+	...
+ValueError: m_a can't be empty
+
+# test a list of lists with non ints
+>>> matrix_mul([[1, 2], ['c', "holb"]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+	...
+TypeError: m_a should contain only integers or floats
+
+# test non-rectangle matrix
+>>> matrix_mul([[1, 2], [3, 4, 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+	...
+TypeError: each row of m_a must should be of the same size
+
+# check if they can't be multiplied
+
