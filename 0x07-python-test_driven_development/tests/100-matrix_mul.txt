@@ -44,4 +44,7 @@ Traceback (most recent call last):
 TypeError: each row of m_a must should be of the same size
 
 # check if they can't be multiplied
-
+>>> matrix_mul([[1, 2]], [[1, 2], [2, 3], [4, 5]])
+Traceback (most recent call last):
+	...
+ValueError: m_a and m_b can't be multiplied
