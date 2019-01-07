@@ -1,0 +1,31 @@
+====================================
+UNIT TESTS FOR 5-text_indentation.py
+====================================
+
+
+>>> text_ind = __import__('5-text_indentation').text_indentation
+>>> text_ind("hello:world?")
+hello:
+<BLANKLINE>
+world?
+<BLANKLINE>
+
+>>> text_ind("hello:::world?")
+hello:
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+world?
+<BLANKLINE>
+
+>>> text_ind(42)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+
+>>> text_ind("hello")
+hello
+
+
