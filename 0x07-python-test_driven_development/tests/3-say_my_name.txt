@@ -1,0 +1,29 @@
+===================================
+UNIT TEST FILE FOR 3-say_my_name.py
+===================================
+
+>>> say_name = __import__('3-say_my_name').say_my_name
+>>> say_name("joe", "bob")
+My name is joe bob
+
+>>> say_name("joe")
+My name is joe 
+
+>>> say_name("")
+My name is  
+
+>>> say_name(42)
+Traceback (most recent call last):
+	...
+TypeError: first_name must be a string
+
+>>> say_name("jordan", 42)
+Traceback (most recent call last):
+	...
+TypeError: last_name must be a string
+
+>>> say_name()
+Traceback (most recent call last):
+	...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+ 
