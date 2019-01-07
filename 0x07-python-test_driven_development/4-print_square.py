@@ -14,7 +14,7 @@ def print_square(size):
         else:
             raise ValueError("size must be >= 0")
 
-    size = int(size) # if it was a float convert it
+    size = int(size)  # if it was a float convert it
     i = 0
 
     for i in range(0, size):
