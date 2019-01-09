@@ -33,6 +33,7 @@ class Rectangle():
         string += str(self.width)
         string += ", " + str(self.height) + ")"
         return string
+
     @property
     def height(self):
         """ getter for height property """
