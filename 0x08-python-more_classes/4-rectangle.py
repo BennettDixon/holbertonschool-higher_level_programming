@@ -31,9 +31,7 @@ class Rectangle():
         """
         string = "Rectangle("
         string += str(self.width)
-        string += ", "
-        string += str(self.height)
-        string += ")"
+        string += ", " + str(self.height) + ")"
         return string
     @property
     def height(self):
