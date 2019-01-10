@@ -1,0 +1,5 @@
+What do these 3 lines print?
+
+>>> s1 = "Holberton"
+>>> s2 = "Holberton"
+>>> print(s1 is s2)
