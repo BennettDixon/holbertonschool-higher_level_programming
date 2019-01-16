@@ -2,6 +2,8 @@
 
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
 class Rectangle(BaseGeometry):
     """rectangle shape, inheirts from basegeometry
     """
@@ -21,4 +23,4 @@ class Rectangle(BaseGeometry):
     def area(self):
         """overrides parent's method for area for use w/ rectangle
         """
-        return (self.__width * self.__height) 
+        return (self.__width * self.__height)

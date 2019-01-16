@@ -4,7 +4,7 @@
 class BaseGeometry():
     """for use with shapes. Super class.
     """
-    
+
     def area(self):
         """instance method to calculate area of shape
         """

@@ -3,6 +3,7 @@
 
 Rectangle = __import__('9-rectangle').Rectangle
 
+
 class Square(Rectangle):
     """square shape class, super class is BaseGeometry, then Rectangle
     """
