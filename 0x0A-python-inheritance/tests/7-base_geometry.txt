@@ -1,0 +1,26 @@
+============================
+TESTS FOR 7-base_geometry.py
+============================
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("custom_int", 12)
+
+>>> bg.integer_validator("none", None)
+Traceback (most recent call last):
+	...
+TypeError: none must be an integer
+
+>>> bg.integer_validator("neg", -40)
+Traceback (most recent call last):
+	...
+ValueError: neg must be greater than 0
+
+>>> bg.integer_validator("float", 4.5)
+Traceback (most recent call last):
+	...
+TypeError: float must be an integer
+
+>>> bg.integer_validator("zero", 0)
+Traceback (most recent call last):
+	...
+ValueError: zero must be greater than 0
