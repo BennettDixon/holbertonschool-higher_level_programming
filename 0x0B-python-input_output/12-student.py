@@ -19,7 +19,7 @@ class Student:
                     is_all_strs = False
         else:
             is_all_strs = False
-        
-        return {key: value for (key, value) in self.__dict__.items()\
-                    if key in list(self.__dict__.keys()) and\
-                    (not is_all_strs or key in attrs)}
+
+        return {key: value for (key, value) in self.__dict__.items()
+                if key in list(self.__dict__.keys()) and
+                (not is_all_strs or key in attrs)}
