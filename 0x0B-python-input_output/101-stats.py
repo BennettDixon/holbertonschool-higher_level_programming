@@ -3,7 +3,6 @@
 """
 
 
-import argparse
 import sys
 
 
@@ -52,8 +51,6 @@ class DebugLog:
             self.total_size += int(words[-1])
             self.__current_line += 1
 
-
-parser = argparse.ArgumentParser()
 
 log = DebugLog()
 lines = []
