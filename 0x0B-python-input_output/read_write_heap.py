@@ -21,11 +21,14 @@ def modify_heap():
                 if 'r' not in heap_data[1] or 'w' not in heap_data[1]:
                     print("read or write permissions not availble")
                     exit(1)
+
+                heap_start = int(x_range[0], 16)
+                heap_end = int(x_range[1], 16)
+
                 with open(pid_dir + '/mem', 'rb+') as mem_file:
-                    mem_file.seek(int(x_range[0], 16))
+                    mem_file.seek(heap_start)
                     # read all bytes of heap
-                    heap = mem_file.read(int(x_range[1], 16) -
-                                         int(x_range[0], 16))
+                    heap = mem_file.read(heap_end - heap_start)
                     builder = ""
                     for i, byte in enumerate(heap):
                         if chr(byte) in sys.argv[2]:
@@ -40,7 +43,6 @@ def modify_heap():
                         print("couldn't find search string in heap")
                         print(builder)
                         exit(1)
-                    print(str_offset)
-                    print(builder)
-
+                    mem_file.seek(heap_start + str_offset)
+                    mem_file.write(bytes(sys.argv[3] + '\0', "ASCII"))
 modify_heap()
