@@ -27,10 +27,20 @@ def modify_heap():
                     heap = mem_file.read(int(x_range[1], 16) -\
                                         int(x_range[0], 16))
                     builder = ""
-                    for byte in heap:
-                        if byte != 0:
+                    for i, byte in enumerate(heap):
+                        if chr(byte) in sys.argv[2]:
+                            if builder == "":
+                                str_offset = i
                             builder += chr(byte)
+                            if builder == sys.argv[2]:
+                                break
+                        elif byte != 0: # found semi-matching garbage
+                            builder = "" # reset
+                    if builder != sys.argv[2]:
+                        print("couldn't find search string in heap")
+                        print(builder)
+                        exit(1)
+                    print(str_offset)
                     print(builder)
-
 
 modify_heap()
