@@ -34,10 +34,15 @@ class Rectangle(Base):
     def display(self):
         """prints the rectangle to stdout
         """
-        for i in range(0, self.height):
-            for j in range(0, self.width):
-                print('#', end='')
+        for y_sp in range(0, self.y):
             print()
+        for i in range(0, self.height):
+            builder = ""
+            for x_sp in range(0, self.x):
+                builder += " "
+            for j in range(0, self.width):
+                builder += "#"
+            print(builder)
 
     @property
     def width(self):
