@@ -130,3 +130,13 @@ class TestSquare(unittest.TestCase):
             r.size = "holberton"
         with self.assertRaises(TypeError):
             r.size = True
+
+    def test_to_dictionary(self):
+        """tests square's to_dictionary method
+        """
+        r = Square(5, 1, 2, 33)
+        r_dict = r.to_dictionary()
+        self.assertEqual(r_dict['id'], 33)
+        self.assertEqual(r_dict['size'], 5)
+        self.assertEqual(r_dict['x'], 1)
+        self.assertEqual(r_dict['y'], 2)

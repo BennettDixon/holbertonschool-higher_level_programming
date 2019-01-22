@@ -47,6 +47,14 @@ class Square(Rectangle):
                     self.y = value
 
 
+    def to_dictionary(self):
+        """gets the dictionary representation of a square object
+        """
+        new_d = super().to_dictionary()
+        del new_d['height']
+        del new_d['width']
+        new_d['size'] = self.size
+        return new_d
     @property
     def size(self):
         return self.width
