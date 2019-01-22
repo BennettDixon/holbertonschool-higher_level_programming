@@ -55,3 +55,18 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual("[Rectangle] (14) 2/2 - 3/3", str(r))
         r = Rectangle(5, 5, 1)
         self.assertEqual("[Rectangle] ({}) 1/0 - 5/5".format(r.id), str(r))
+
+    def test_update(self):
+        r = Rectangle(4, 5, 45)
+        r.update(500)
+        self.assertEqual(500, r.id)
+        r.update(500, 2)
+        self.assertEqual(2, r.width)
+        r.update(500, 2, 3)
+        self.assertEqual(3, r.height)
+        r.update(500, 2, 3, 4)
+        self.assertEqual(4, r.x)
+        r.update(500, 2, 3, 4, 5)
+        self.assertEqual(5, r.y)
+        r.update(500, 2, 3, 4, 5, 6, 7, 8)
+        self.assertEqual(5, r.y)
