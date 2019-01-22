@@ -91,3 +91,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(6, r.id)
         self.assertEqual(100, r.x)
         self.assertEqual(100, r.y)
+
+    def test_dictionary(self):
+        """tests rectangle's to_dictionary method
+        """
+        r = Rectangle(4, 5, 6, 7, 33)
+        r_dict = r.to_dictionary()
+        self.assertEqual(r_dict['id'], 33)
+        self.assertEqual(r_dict['width'], 4)
+        self.assertEqual(r_dict['height'], 5)
+        self.assertEqual(r_dict['x'], 6)
+        self.assertEqual(r_dict['y'], 7)
+        
