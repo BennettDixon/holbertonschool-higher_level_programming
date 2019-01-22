@@ -19,7 +19,8 @@ class Rectangle(Base):
     def __str__(self):
         """override for str method used in print etc
         """
-        builder = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+        builder = "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                          self.id,
                                                           self.x,
                                                           self.y,
                                                           self.width,
