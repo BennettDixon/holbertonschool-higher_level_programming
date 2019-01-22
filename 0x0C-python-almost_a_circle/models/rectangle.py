@@ -16,10 +16,28 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def __str__(self):
+        """override for str method used in print etc
+        """
+        builder = "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                          self.x,
+                                                          self.y,
+                                                          self.width,
+                                                          self.height)
+        return builder
+
     def area(self):
         """returns the area value of given rectangle instance
         """
         return (self.width * self.height)
+
+    def display(self):
+        """prints the rectangle to stdout
+        """
+        for i in range(0, self.height):
+            for j in range(0, self.width):
+                print('#', end='')
+            print()
 
     @property
     def width(self):

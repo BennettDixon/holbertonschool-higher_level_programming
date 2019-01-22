@@ -12,7 +12,6 @@ class TestBase(unittest.TestCase):
     """class for test case for base class
     """
 
-
     def test_basic(self):
         """tests basic functionality
         """
@@ -20,7 +19,7 @@ class TestBase(unittest.TestCase):
         b2 = Base()
         b3 = Base()
         self.assertEqual(b2.id + 1, b3.id)
-    
+
     def test_given_id(self):
         b = Base()
         b2 = Base(24)

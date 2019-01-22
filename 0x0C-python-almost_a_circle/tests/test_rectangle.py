@@ -4,13 +4,15 @@
 """
 
 
+import sys
 import unittest
 from models.rectangle import Rectangle
+from capture_manager import capture
+
 
 class TestRectangle(unittest.TestCase):
     """class for test case for rectangle class
     """
-
 
     def test_basic_id(self):
         """tests basic functionality
@@ -19,7 +21,7 @@ class TestRectangle(unittest.TestCase):
         b2 = Rectangle(2, 10)
         b3 = Rectangle(3, 10)
         self.assertEqual(b2.id + 1, b3.id)
-    
+
     def test_given_id(self):
         b = Rectangle(10, 2)
         b2 = Rectangle(10, 3)
@@ -47,3 +49,9 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         r = Rectangle(4, 8)
         self.assertEqual(r.area(), 32)
+
+    def test_str(self):
+        r = Rectangle(3, 3, 2, 2, 14)
+        self.assertEqual("[Rectangle] (14) 2/2 - 3/3", str(r))
+        r = Rectangle(5, 5, 1)
+        self.assertEqual("[Rectangle] ({}) 1/0 - 5/5".format(r.id), str(r))
