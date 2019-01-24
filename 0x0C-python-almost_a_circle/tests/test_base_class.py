@@ -23,12 +23,26 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b2.id + 1, b3.id)
 
     def test_given_id(self):
+        """tests id being set when given and not upticking default
+        """
         b = Base()
         b2 = Base(24)
         b3 = Base(45)
         b4 = Base()
         self.assertEqual(45, b3.id)
         self.assertEqual(b.id + 1, b4.id)
+
+    def test_json_method(self):
+        """tests Base's to_json_string method
+        """
+        r1 = Rectangle(4, 5, 6, 7, 8)
+        r2 = Rectangle(10, 11, 12, 13, 14)
+        dictionary = r1.to_dictionary()
+        d2 = r2.to_dictionary()
+        json_dict = Base.to_json_string([dictionary, d2])
+        j_d = eval(json_dict)
+        self.assertEqual(j_d[0]['id'], 8)
+        self.assertEqual(j_d[1]['x'], 12)
 
     def test_write_file_basic(self):
         """tests write to file basic capabilities, given 1 type of class
