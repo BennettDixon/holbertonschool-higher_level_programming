@@ -33,7 +33,7 @@ class Base:
         return eval(json_string)
 
     @staticmethod
-    def to_csv_string(list_csv):
+    def to_csv_lines(list_csv):
         """returns CSV string representation from list of sub class
             objects represented in their csv form
         """
@@ -45,6 +45,20 @@ class Base:
                     builder += ','
             builder += '\n'
         return builder
+
+    @staticmethod
+    def from_csv_lines(list_csv):
+        """returns list of CSV instance objects (containing sub class data)
+            ->from list of lines of data
+        """
+        if list_csv is None or len(list_csv) == 0:
+            return []
+
+        csv_data = []
+        for line in list_csv:
+            raw_data = line.strip('\n').split(',')
+            csv_data.append([int(ele) for ele in raw_data])
+        return csv_data
 
     @staticmethod
     def get_cname_from_sublist(list_objs):
@@ -115,7 +129,7 @@ class Base:
         for ele in list_obj_copy:
             if issubclass(type(ele), Base):
                 super_list.append(ele.to_csv())
-        write_str = cls.to_csv_string(super_list)
+        write_str = cls.to_csv_lines(super_list)
         with open(cname + '.csv', 'w', encoding='utf-8') as myFile:
             myFile.write(write_str)
 
@@ -123,3 +137,17 @@ class Base:
     def load_from_file_csv(cls):
         """loads a list of objects from their csv file
         """
+        cname = cls.__name__
+        try:
+            with open(cname + '.csv', 'r', encoding='utf-8') as myFile:
+                lines = myFile.readlines()
+        except:
+            return []
+
+        inst_list = []
+        csv_list_list = cls.from_csv_lines(lines)
+        for csv_inst in csv_list_list:
+            new_obj = cls(1, 1)
+            new_obj.update(*csv_inst)
+            inst_list.append(new_obj)
+        return inst_list
