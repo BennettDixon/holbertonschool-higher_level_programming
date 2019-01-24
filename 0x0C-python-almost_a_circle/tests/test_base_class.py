@@ -144,6 +144,20 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_rectangles_output[0].y, 8)
         self.assertEqual(list_rectangles_output[1].height, 4)
 
+    def test_read_from_file_basic(self):
+        """tests the base class method to read from json files when
+            -> input is basic
+        """
+        r1 = Rectangle(10, 7, 8, 3, 44)
+        r2 = Rectangle(24, 23, 5, 1, 99)
+        Rectangle.save_to_file([r1, r2])
+        with open('Rectangle.json', 'r', encoding='utf-8') as myFile:
+            text = myFile.read()
+        rects = Rectangle.load_from_file()
+        self.assertEqual(rects[0].width, 10)
+        self.assertEqual(rects[1].id, 99)
+        self.assertEqual(rects[1].x, 5)
+
     def test_read_from_file_empty(self):
         """tests the base class method to read from json files when
             -> empty
@@ -154,6 +168,7 @@ class TestBase(unittest.TestCase):
             pass
         list_output = Square.load_from_file()
         self.assertEqual(len(list_output), 0)
+        self.assertEqual(list, type(list_output))
 
     def test_write_csv_basic(self):
         """tests the base class method to write instances as csv
@@ -181,3 +196,37 @@ class TestBase(unittest.TestCase):
             text = myFile.readlines()
         self.assertEqual(text[0][0] + text[0][1] + text[0][2], "109")
         self.assertEqual(text[3][0] + text[3][1], "33")
+
+    def test_read_csv_basic(self):
+        """tests the base class method to read from csv
+            -> basic input
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_output = Rectangle.load_from_file_csv()
+        self.assertEqual(8, list_output[0].y)
+        self.assertEqual(4, list_output[1].height)
+
+    def test_read_csv_complex(self):
+        """tests the base class method to read from csv
+            -> complex input, can contain squares in rectangle file
+            -> squares should be returned as rectangles
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        s1 = Square(2, 4)
+        list_rectangles_input = [r1, s1]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_output = Rectangle.load_from_file_csv()
+        self.assertEqual(8, list_output[0].y)
+        self.assertEqual(4, list_output[1].height)
+
+    def test_read_csv_empty(self):
+        try:
+            os.remove('Square.csv')
+        except:
+            pass
+        list_output = Square.load_from_file_csv()
+        self.assertEqual(0, len(list_output))
+        self.assertEqual(list, type(list_output))
