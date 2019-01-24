@@ -93,4 +93,18 @@ class TestBase(unittest.TestCase):
         Base.save_to_file([])
         with open('Rectangle.json', 'r', encoding='utf-8') as myFile:
             text = myFile.read()
-        self.assertEqual(text, "[]")  
+        self.assertEqual(text, "[]")
+
+    def test_from_json(self):
+        """tests bases from_json_string method to convert string to
+                -> list of dictionaries
+        """
+        s = Square(4, 8, 9, 2)
+        r = Rectangle(9, 2, 3, 4)
+        r_d = r.to_dictionary()
+        s_d = s.to_dictionary()
+        json_d = Base.to_json_string([s_d, r_d])
+        d_list = Base.from_json_string(json_d)
+        self.assertEqual(d_list[0]['id'], 2)
+        self.assertEqual(d_list[1]['width'], 9)
+        self.assertEqual(len(d_list), 2)

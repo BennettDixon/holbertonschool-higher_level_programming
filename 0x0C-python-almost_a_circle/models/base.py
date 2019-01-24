@@ -51,3 +51,11 @@ class Base:
         write_str = cls.to_json_string(super_list)
         with open(cname + '.json', 'w', encoding='utf-8') as myFile:
             myFile.write(write_str)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns a list of dictionary objects evaluated from json string
+        """
+        if json_string is None or len(json_string) == 0:
+            json_string = "[]"
+        return eval(json_string)
