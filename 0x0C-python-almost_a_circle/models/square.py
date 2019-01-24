@@ -25,7 +25,7 @@ class Square(Rectangle):
         """takes an *args argument and sets arguments respective
             to instantiation function
         """
-        if args != None and len(args) > 0:
+        if args is not None and len(args) > 0:
             for i, arg in enumerate(args):
                 if i == 0:
                     self.id = arg
@@ -45,7 +45,6 @@ class Square(Rectangle):
                     self.x = value
                 elif key == "y":
                     self.y = value
-
 
     def to_dictionary(self):
         """gets the dictionary representation of a square object

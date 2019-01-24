@@ -20,11 +20,11 @@ class Rectangle(Base):
         """override for str method used in print etc
         """
         builder = "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
-                                                          self.id,
-                                                          self.x,
-                                                          self.y,
-                                                          self.width,
-                                                          self.height)
+                                                   self.id,
+                                                   self.x,
+                                                   self.y,
+                                                   self.width,
+                                                   self.height)
         return builder
 
     def area(self):
@@ -49,7 +49,7 @@ class Rectangle(Base):
         """takes an *args argument and sets arguments respective
             to instantiation function
         """
-        if args != None and len(args) > 0:
+        if args is not None and len(args) > 0:
             for i, arg in enumerate(args):
                 if i == 0:
                     self.id = arg
