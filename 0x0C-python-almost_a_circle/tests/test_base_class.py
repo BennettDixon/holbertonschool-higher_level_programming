@@ -108,3 +108,11 @@ class TestBase(unittest.TestCase):
         self.assertEqual(d_list[0]['id'], 2)
         self.assertEqual(d_list[1]['width'], 9)
         self.assertEqual(len(d_list), 2)
+
+    def test_from_json_empty(self):
+        """tests base's from_json_string method with empty inputs
+        """
+        d_list = Base.from_json_string("")
+        self.assertEqual(len(d_list), 0)
+        d_list = Base.from_json_string(None)
+        self.assertEqual(len(d_list), 0)
