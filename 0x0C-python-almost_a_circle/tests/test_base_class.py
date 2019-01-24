@@ -116,3 +116,17 @@ class TestBase(unittest.TestCase):
         self.assertEqual(len(d_list), 0)
         d_list = Base.from_json_string(None)
         self.assertEqual(len(d_list), 0)
+
+    def test_create_inst(self):
+        r = Rectangle(9, 2, 3, 4, 45)
+        s = Square(4, 8, 9, 2)
+        r_d = r.to_dictionary()
+        s_d = s.to_dictionary()
+        r2 = Rectangle.create(**r_d)
+        s2 = Square.create(**s_d)
+        self.assertEqual(s.id, s2.id)
+        self.assertEqual(r.id, r2.id)
+        self.assertEqual(s.y, s2.y)
+        self.assertEqual(s.x, s2.x)
+        self.assertEqual(r.width, r2.width)
+        self.assertEqual(s.size, s2.size)

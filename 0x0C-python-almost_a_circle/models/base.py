@@ -3,6 +3,7 @@
 """
 
 
+
 class Base:
     """base class for use with other classes
     """
@@ -59,3 +60,13 @@ class Base:
         if json_string is None or len(json_string) == 0:
             json_string = "[]"
         return eval(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """creates a new instance of sub class using that class's
+            -> update method after instantiating one instance.
+        """
+        new_inst = cls(1, 1)
+        if new_inst is not None:
+            new_inst.update(**dictionary)
+        return new_inst
