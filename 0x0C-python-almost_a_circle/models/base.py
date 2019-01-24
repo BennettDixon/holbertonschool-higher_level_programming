@@ -24,35 +24,6 @@ class Base:
         """
         return str(list_dictionaries)
 
-    @classmethod
-    def save_to_file(cls, list_objs):
-        """saves a list of objects to a file as a JSON string
-        """
-        new_list = None
-        cname = None
-        for obj in list_objs:
-            # clean up list for non sub elements
-            # doesn't effect original copy
-            if not issubclass(type(obj), Base):
-                if new_list is None:
-                    new_list = list_objs.copy()
-                new_list.remove(obj)
-            elif cname is None or cname != "Rectangle":
-                cname = obj.__class__.__name__
-
-        super_list = []
-        if new_list is None:
-            for ele in list_objs:
-                super_list.append(ele.to_dictionary())
-        else:
-            for ele in new_list:
-                super_list.append(ele.to_dictionary())
-        if cname is None:  # default used when empty list
-            cname = "Rectangle"
-        write_str = cls.to_json_string(super_list)
-        with open(cname + '.json', 'w', encoding='utf-8') as myFile:
-            myFile.write(write_str)
-
     @staticmethod
     def from_json_string(json_string):
         """returns a list of dictionary objects evaluated from json string
@@ -60,6 +31,50 @@ class Base:
         if json_string is None or len(json_string) == 0:
             json_string = "[]"
         return eval(json_string)
+
+    @staticmethod
+    def to_csv_string(list_csv):
+        """returns CSV string representation from list of sub class
+            objects represented in their csv form
+        """
+        builder = ""
+        for csv in list_csv:
+            for i, ele in enumerate(csv):
+                builder += str(ele)
+                if i != len(csv) - 1:
+                    builder += ','
+            builder += '\n'
+        return builder
+
+    @staticmethod
+    def get_cname_from_sublist(list_objs):
+        """gets proper cname to use when saving objects
+        """
+        cname = None
+        for i, obj in enumerate(list_objs):
+            if not issubclass(type(obj), Base):
+                continue
+            elif cname is None or cname != "Rectangle":
+                cname = obj.__class__.__name__
+        if cname is None:
+            cname = "Rectangle"
+        return cname
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """saves a list of objects to a file as a JSON string
+        """
+        new_list = None
+        list_obj_copy = list_objs.copy()
+        cname = cls.get_cname_from_sublist(list_obj_copy)
+
+        super_list = []
+        for ele in list_obj_copy:
+            if issubclass(type(ele), Base):
+                super_list.append(ele.to_dictionary())
+        write_str = cls.to_json_string(super_list)
+        with open(cname + '.json', 'w', encoding='utf-8') as myFile:
+            myFile.write(write_str)
 
     @classmethod
     def create(cls, **dictionary):
@@ -87,3 +102,24 @@ class Base:
         for ele in dict_list:
             inst_list.append(cls.create(**ele))
         return inst_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """saves a list of sub-class objects to their file as csv
+        """
+        list_obj_copy = list_objs.copy()
+        # get_cname_from_sublist also removes non subclass eles, so copy
+        cname = cls.get_cname_from_sublist(list_obj_copy)
+        super_list = []
+
+        for ele in list_obj_copy:
+            if issubclass(type(ele), Base):
+                super_list.append(ele.to_csv())
+        write_str = cls.to_csv_string(super_list)
+        with open(cname + '.csv', 'w', encoding='utf-8') as myFile:
+            myFile.write(write_str)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """loads a list of objects from their csv file
+        """

@@ -83,6 +83,11 @@ class Rectangle(Base):
                 'x': self.x,
                 'y': self.y}
 
+    def to_csv(self):
+        """returns a list containing csv representation of rectangle
+        """
+        return [self.id, self.width, self.height, self.x, self.y]
+
     @property
     def width(self):
         return self.__width

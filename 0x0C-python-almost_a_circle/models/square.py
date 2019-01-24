@@ -55,6 +55,12 @@ class Square(Rectangle):
         del new_d['width']
         new_d['size'] = self.size
         return new_d
+
+    def to_csv(self):
+        """returns a list containing csv representation of rectangle
+        """
+        return [self.id, self.size, self.x, self.y]
+
     @property
     def size(self):
         return self.width
