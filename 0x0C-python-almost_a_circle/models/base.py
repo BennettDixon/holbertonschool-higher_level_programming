@@ -17,7 +17,37 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
+    @staticmethod
     def to_json_string(list_dictionaries):
         """returns JSON string representation of list_dictionaries
         """
         return str(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """saves a list of objects to a file as a JSON string
+        """
+        new_list = None
+        cname = None
+        for obj in list_objs:
+            # clean up list for non sub elements
+            # doesn't effect original copy
+            if not issubclass(type(obj), Base):
+                if new_list is None:
+                    new_list = list_objs.copy()
+                new_list.remove(obj)
+            elif cname is None or cname != "Rectangle":
+                cname = obj.__class__.__name__
+
+        super_list = []
+        if new_list is None:
+            for ele in list_objs:
+                super_list.append(ele.to_dictionary())
+        else:
+            for ele in new_list:
+                super_list.append(ele.to_dictionary())
+        if cname is None:  # default used when empty list
+            cname = "Rectangle"
+        write_str = cls.to_json_string(super_list)
+        with open(cname + '.json', 'w', encoding='utf-8') as myFile:
+            myFile.write(write_str)
