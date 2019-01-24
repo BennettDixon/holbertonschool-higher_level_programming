@@ -4,6 +4,7 @@
 """
 
 
+import os
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -130,3 +131,23 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s.x, s2.x)
         self.assertEqual(r.width, r2.width)
         self.assertEqual(s.size, s2.size)
+
+    def test_read_from_file(self):
+        """tests the base class method read from file, for use in
+            -> Rectangle and Square
+        """
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(list_rectangles_output[0].y, 8)
+        self.assertEqual(list_rectangles_output[1].height, 4)
+
+    def test_read_from_file_empty(self):
+        try:
+            os.remove('Square.json')
+        except:
+            pass
+        list_output = Square.load_from_file()
+        self.assertEqual(len(list_output), 0)

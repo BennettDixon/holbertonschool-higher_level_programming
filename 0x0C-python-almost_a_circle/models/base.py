@@ -70,3 +70,20 @@ class Base:
         if new_inst is not None:
             new_inst.update(**dictionary)
         return new_inst
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of all instances in class's file
+        """
+        cname = cls.__name__
+        try:
+            with open(cname + '.json', 'r', encoding='utf-8') as myFile:
+                text = myFile.read()
+        except:
+            return []
+
+        inst_list = []
+        dict_list = cls.from_json_string(text)
+        for ele in dict_list:
+            inst_list.append(cls.create(**ele))
+        return inst_list
