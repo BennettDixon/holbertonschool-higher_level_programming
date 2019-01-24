@@ -3,6 +3,8 @@
 """
 
 
+import turtle
+
 
 class Base:
     """base class for use with other classes
@@ -151,3 +153,43 @@ class Base:
             new_obj.update(*csv_inst)
             inst_list.append(new_obj)
         return inst_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draws the rectangles and squares using turtle GL
+        """
+        window = turtle.Screen()
+        window.bgcolor("green")
+        all_eles = list_rectangles.copy()
+        all_eles.extend(list_squares)
+        turtles = [turtle.Turtle() for ele in all_eles]
+        for i, t in enumerate(turtles):
+            if i < len(list_rectangles):
+                t.color("blue")
+                if i > 0:
+                    prev_pos = turtles[i - 1].position()
+                    prev_x = prev_pos[0] + list_rectangles[i - 1].width
+                    pre_y = prev_pos[1]
+                    if i % 6 == 0:
+                        pre_y = prev_pos[1] + list_rectangles[i - 1].height
+                    t.setpos(prev_x, pre_y)
+                t.forward(list_rectangles[i].width)
+                t.right(90)
+                t.forward(list_rectangles[i].height)
+                t.right(90)
+                t.forward(list_rectangles[i].width)
+                t.right(90)
+                t.forward(list_rectangles[i].height)
+            else:
+                t.color("red")
+                if i > 0:
+                    cur_sq_i = i - len(list_rectangles)
+                    prev_pos = turtles[i - 1].position()
+                    prev_x = prev_pos[0] + list_squares[cur_sq_i - 1].size
+                    prev_y = prev_pos[1]
+                    if i % 6 == 0:
+                        prev_y = prev_pos[1] + list_squares[cur_sq_i - 1].size
+                    t.setpos(prev_x, prev_y)
+                for s in range(0, 4):
+                    t.forward(list_squares[cur_sq_i].size)
+                    t.right(90)
