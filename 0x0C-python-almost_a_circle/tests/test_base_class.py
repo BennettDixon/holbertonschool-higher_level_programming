@@ -145,9 +145,39 @@ class TestBase(unittest.TestCase):
         self.assertEqual(list_rectangles_output[1].height, 4)
 
     def test_read_from_file_empty(self):
+        """tests the base class method to read from json files when
+            -> empty
+        """
         try:
             os.remove('Square.json')
         except:
             pass
         list_output = Square.load_from_file()
         self.assertEqual(len(list_output), 0)
+
+    def test_write_csv_basic(self):
+        """tests the base class method to write instances as csv
+        """
+        r1 = Rectangle(10, 7, 2, 8, 33)
+        r2 = Rectangle(10, 8, 4, 9, 44)
+        Rectangle.save_to_file_csv([r1, r2])
+        with open('Rectangle.csv', 'r', encoding='utf-8') as myFile:
+            text = myFile.readlines()
+        self.assertEqual(text[0][0] + text[0][1], "33")
+        self.assertEqual(text[1][0] + text[1][1], "44")
+
+    def test_write_csv_complex(self):
+        """tests the base class method to write instances as csv
+            -> with bad input etc
+        """
+        r1 = Rectangle(10, 7, 2, 4, 33)
+        r2 = Rectangle(10, 8 , 4, 9, 44)
+        s1 = Square(10, 8, 4, 109)
+        s2 = Square(11, 4, 3, 120)
+        bs = ["bs", 42, True]
+        more_bs = 45.34
+        Rectangle.save_to_file_csv([bs, s1, s2, more_bs, r2, r1])
+        with open('Rectangle.csv', 'r', encoding='utf-8') as myFile:
+            text = myFile.readlines()
+        self.assertEqual(text[0][0] + text[0][1] + text[0][2], "109")
+        self.assertEqual(text[3][0] + text[3][1], "33")
