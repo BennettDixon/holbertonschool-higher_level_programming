@@ -102,4 +102,3 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r_dict['height'], 5)
         self.assertEqual(r_dict['x'], 6)
         self.assertEqual(r_dict['y'], 7)
-        

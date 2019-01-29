@@ -86,7 +86,6 @@ class TestBase(unittest.TestCase):
         list_of_dicts = eval(text)
         self.assertEqual(list_of_dicts[1]['id'], 30)
         self.assertEqual(list_of_dicts[3]['x'], 4)
-      
 
     def test_write_file_empty(self):
         """tests empty list is written to correct default file
@@ -186,7 +185,7 @@ class TestBase(unittest.TestCase):
             -> with bad input etc
         """
         r1 = Rectangle(10, 7, 2, 4, 33)
-        r2 = Rectangle(10, 8 , 4, 9, 44)
+        r2 = Rectangle(10, 8, 4, 9, 44)
         s1 = Square(10, 8, 4, 109)
         s2 = Square(11, 4, 3, 120)
         bs = ["bs", 42, True]
