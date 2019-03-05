@@ -7,4 +7,4 @@ SELECT
   INNER JOIN tv_genres
   ON tv_show_genres.genre_id = tv_genres.id
   GROUP BY genre
-  ORDER BY COUNT(tv_show_genres.genre_id) DESC;
+  ORDER BY number_of_shows DESC;
