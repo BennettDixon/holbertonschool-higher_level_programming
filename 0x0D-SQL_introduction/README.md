@@ -6,7 +6,7 @@ In this project I will be furthering my understanding of SQL. I have used SQL in
 
 * [Ubuntu 14.04 LTS](http://releases.ubuntu.com/14.04/) - Operating system reqd.
 
-* [Python 3.4](https://www.python.org/download/releases/3.4.0/) - Python Version Used
+* [MySQL 5.7](http://dev.mysql.com/get/mysql-apt-config_0.6.0-1_all.deb) - MySQL Version Used
 
 ## :warning: Prerequisites
 
