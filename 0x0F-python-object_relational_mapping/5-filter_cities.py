@@ -10,6 +10,8 @@ if __name__ == '__main__':
     if len(args) < 5:
         print("Usage: {} username password db_name state_name".format(args[0]))
         exit(1)
+
+    # connect to database and set up user input variables
     username = args[1]
     password = args[2]
     data = args[3]
@@ -18,6 +20,7 @@ if __name__ == '__main__':
                          passwd=password, db=data,
                          port=3306)
     cur = db.cursor()
+    # execute sql join statement to gather states and cities
     num_rows = cur.execute('''
         SELECT cities.name, states.name
         FROM cities INNER JOIN states
@@ -25,8 +28,10 @@ if __name__ == '__main__':
         ORDER BY states.id ASC
         ''')
     rows = cur.fetchall()
+    # get cities from all rows matching state name
     cities = [row[0] for row in rows if statename in row[1]]
     num_cities = len(cities)
+    # print cities out using custom ends to format output
     for i, city in enumerate(cities):
         if i == num_cities - 1:
             print(city)
