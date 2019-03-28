@@ -16,7 +16,7 @@ db = MySQLdb.connect(host='localhost', user=username,
                      passwd=password, db=data,
                      port=3306)
 cur = db.cursor()
-num_rows = cur.execute("SELECT * FROM states")
+num_rows = cur.execute("SELECT * FROM states ORDER BY states.id")
 rows = cur.fetchall()
 for row in rows:
     print(row)
