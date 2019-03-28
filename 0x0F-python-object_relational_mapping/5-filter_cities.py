@@ -25,11 +25,7 @@ if __name__ == '__main__':
         ORDER BY states.id ASC
         ''')
     rows = cur.fetchall()
-    cities = []
-    for row in rows:
-        if (statename not in row[1]):
-            continue
-        cities.append(row[0])
+    cities = [row[0] for row in rows if statename in row[1]]
     num_cities = len(cities)
     for i, city in enumerate(cities):
         if i == num_cities - 1:
