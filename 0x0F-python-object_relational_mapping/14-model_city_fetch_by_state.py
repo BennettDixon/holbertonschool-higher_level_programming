@@ -20,6 +20,6 @@ if __name__ == '__main__':
     # create instance of new custom session class
     session = Session()
     for result in session.query(State.name, City.id, City.name)\
-                      .join(City, City.state_id == State.id)\
-                      .order_by(State.id):
+            .join(City, City.state_id == State.id)\
+            .order_by(State.id):
         print("{}: ({}) {}".format(result[0], result[1], result[2]))
