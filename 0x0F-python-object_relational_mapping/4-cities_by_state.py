@@ -18,10 +18,10 @@ if __name__ == '__main__':
                          port=3306)
     cur = db.cursor()
     num_rows = cur.execute('''
-        SELECT states.id, cities.name, states.name
+        SELECT cities.id, cities.name, states.name
         FROM cities INNER JOIN states
         ON cities.state_id=states.id
-        ORDER BY states.id ASC
+        ORDER BY cities.id ASC
         ''')
     rows = cur.fetchall()
     for row in rows:
