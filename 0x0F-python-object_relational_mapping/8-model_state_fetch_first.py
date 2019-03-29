@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # create instance of new custom session class
     session = Session()
     state = session.query(State).order_by(State.id).first()
-    if (state != None):
+    if (state is not None):
         print('{}: {}'.format(state.id, state.name))
     else:
         print('Nothing')
