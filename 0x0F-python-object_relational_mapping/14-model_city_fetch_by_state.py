@@ -21,5 +21,5 @@ if __name__ == '__main__':
     session = Session()
     for result in session.query(State.name, City.id, City.name)\
             .join(City, City.state_id == State.id)\
-            .order_by(State.id):
+            .order_by(City.id):
         print("{}: ({}) {}".format(result[0], result[1], result[2]))
