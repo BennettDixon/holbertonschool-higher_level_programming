@@ -17,5 +17,5 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     # create instance of new custom session class
     session = Session()
-    states = session.query(State).order_by(State.id)
-    print('{}: {}'.format(states[0].id, states[0].name))
+    state = session.query(State).order_by(State.id).first()
+    print('{}: {}'.format(state.id, state.name))
