@@ -29,7 +29,7 @@ if __name__ == '__main__':
         ''')
     rows = cur.fetchall()
     # get cities from all rows matching state name
-    cities = [row[1] for row in rows if statename in row[2]]
+    cities = [row[1] for row in rows if statename == row[2]]
     num_cities = len(cities)
     # print cities out using custom ends to format output
     for i, city in enumerate(cities):
