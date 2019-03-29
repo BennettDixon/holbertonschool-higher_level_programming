@@ -22,14 +22,14 @@ if __name__ == '__main__':
     cur = db.cursor()
     # execute sql join statement to gather states and cities
     num_rows = cur.execute('''
-        SELECT cities.name, states.name
+        SELECT cities.id, cities.name, states.name
         FROM cities INNER JOIN states
         ON cities.state_id=states.id
-        ORDER BY states.id ASC
+        ORDER BY cities.id ASC
         ''')
     rows = cur.fetchall()
     # get cities from all rows matching state name
-    cities = [row[0] for row in rows if statename in row[1]]
+    cities = [row[1] for row in rows if statename in row[2]]
     num_cities = len(cities)
     # print cities out using custom ends to format output
     for i, city in enumerate(cities):
