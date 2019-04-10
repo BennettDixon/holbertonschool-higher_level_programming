@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """script for finding peak in list of ints, interview prep
 """
 
