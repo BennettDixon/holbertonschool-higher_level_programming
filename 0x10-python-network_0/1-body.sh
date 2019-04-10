@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 # bash script to send a get request to the url and display body of resposne
 URL=$1
-STATUS=$(curl -Is $URL | head -n1 | cut -f2 -d' ')
-if [ "$STATUS" -eq '200' ]; then
-	curl $URL
+STATUS=$(curl -LIs $URL | grep 'HTTP/' | cut -f2 -d' ')
+SUCCESS='FALSE'
+for i in $STATUS; do
+	if [ "$i" -eq '200' ]; then
+		SUCCESS='TRUE'
+	fi
+done
+if [ "$SUCCESS" == 'TRUE' ]; then
+	curl -L $URL
+else
+	echo 'status not 200'
 fi
