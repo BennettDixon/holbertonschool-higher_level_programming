@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # bash script to send a get request to the url and display body of resposne
 URL=$1
 STATUS=$(curl -LIs $URL | grep 'HTTP/' | cut -f2 -d' ')
@@ -9,7 +9,7 @@ for i in $STATUS; do
 	fi
 done
 if [ "$SUCCESS" == 'TRUE' ]; then
-	curl -L $URL
+	curl -Ls $URL
 else
 	echo 'status not 200'
 fi
