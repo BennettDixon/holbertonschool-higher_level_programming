@@ -13,6 +13,7 @@
             -> still O(n)
 """
 
+
 def find_peak(list_of_integers):
     """BRUTE force implementation for question
     """
