@@ -12,15 +12,11 @@ if __name__ == "__main__":
     response = requests.get(user_url,
                             auth=HTTPBasicAuth(username,
                                                password))
-    if response.status_code != requests.codes.ok or len(response.text) <= 0:
-        print('No result')
-        sys.exit()
-    else:
+    if response.status_code == requests.codes.ok and len(response.text) > 0:
         try:
             my_obj = response.json()
-            if len(my_obj) == 0:
-                print('No result')
-            else:
-                print(my_obj.get('id'))
+            print(my_obj.get('id'))
         except ValueError as invalid_json:
             print('Not a valid JSON')
+    else:
+        print(None)
