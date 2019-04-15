@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """script for testing POST requests so servers
 """
-if __name__ == "__main__"
-    import urllib.request, urllib.parse
+if __name__ == "__main__":
+    import urllib.request
+    import urllib.parse
     import sys
     url = sys.argv[1]
     email = sys.argv[2]
