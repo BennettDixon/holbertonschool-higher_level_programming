@@ -3,7 +3,6 @@
 """
 if __name__ == "__main__":
     import requests
-    from requests.auth import HTTPBasicAuth
     import sys
     url = "https://api.github.com/"
     username = sys.argv[1]
