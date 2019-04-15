@@ -8,6 +8,6 @@ if __name__ == "__main__":
     with requests.get(url) as response:
         meta = response.headers
         try:
-            print(meta['X-Request-Id'])
+            print(meta.get('X-Request-Id'))
         except:
             pass
