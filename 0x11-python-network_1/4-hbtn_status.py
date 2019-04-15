@@ -7,6 +7,6 @@ if __name__ == "__main__":
     with requests.get(url) as response:
         content = response.text
         print_str = '''Body response:
-\t- type: {}
-\t- content: {}'''.format(type(content), content)
+    - type: {}
+    - content: {}'''.format(type(content), content)
         print(print_str)
