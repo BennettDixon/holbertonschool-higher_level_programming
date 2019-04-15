@@ -6,6 +6,6 @@ url = "https://intranet.hbtn.io/status"
 with requests.get(url) as response:
     content = response.text
     print_str = '''Body response:
-    - type: {}
-    - content: {}'''.format(type(content), content)
+\t- type: {}
+\t- content: {}'''.format(type(content), content)
     print(print_str)
