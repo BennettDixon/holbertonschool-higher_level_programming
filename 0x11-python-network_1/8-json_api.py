@@ -16,12 +16,12 @@ if __name__ == "__main__":
         sys.exit()
     else:
         try:
-            my_obj = eval(response.text)
+            my_obj = response.json()
             if len(my_obj) == 0:
                 print('No result')
                 sys.exit()
             my_id = my_obj.get('id')
             my_name = my_obj.get('name')
             print("[{}] {}".format(my_id, my_name))
-        except Exception as E:
+        except ValueError as invalid_json:
             print('Not a valid JSON')
