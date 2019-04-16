@@ -19,6 +19,4 @@ if __name__ == "__main__":
                     name = obj.get('commit').get('author').get('name')
                     print("{}: {}".format(obj.get('sha'), name))
         except ValueError as invalid_json:
-            print('Not a valid JSON')
-    else:
-        print(None)
+            pass
