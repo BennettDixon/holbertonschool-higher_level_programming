@@ -1,17 +1,15 @@
 #!/usr/bin/node
 const process = require('process');
 
-function factorialize(num) {
+function factorialize (num) {
   if (isNaN(num)) {
     return 1;
   }
   if (num < 0) {
     return -1;
-  }
-  else if (num == 0) {
+  } else if (num === 0) {
     return 1;
-  }
-  else {
+  } else {
     return (num * factorialize(num - 1));
   }
 }
