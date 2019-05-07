@@ -1,14 +1,12 @@
 #!/usr/bin/node
 const process = require('process');
 
-let resp;
-resp = '';
-process.argv.forEach(function (value, index) {
-  if (index > 1) {
-    if (index > 2) {
-      resp += ' ';
-    }
-    resp += value;
+let val1;
+let val2;
+if (process.argv.length > 2) {
+  if (process.argv.length > 3) {
+    val2 = process.argv[3];
   }
-});
-console.log(resp);
+  val1 = process.argv[2];
+}
+console.log(val1 + ' is ' + val2);
