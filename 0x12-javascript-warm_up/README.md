@@ -17,6 +17,7 @@ In this project I will be going over an introduction to javascript. I don't much
 * Must have node installed
 
 * SemiStandard complient
+
 [![js-semistandard-style](https://cdn.rawgit.com/flet/semistandard/master/badge.svg)](https://github.com/Flet/semistandard)
 
 ```
