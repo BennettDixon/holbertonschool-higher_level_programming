@@ -25,6 +25,10 @@ $ sudo apt-get install git
 ```
 
 ```
+$ git clone https://github.com/BennettDixon/holbertonschool-higher_level_programming/tree/master/0x12-javascript-warm_up
+```
+
+```
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
