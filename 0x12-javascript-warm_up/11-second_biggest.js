@@ -8,9 +8,9 @@ process.argv.forEach(function (value, index) {
   if (index > 1) {
     if (max === undefined) {
       max = value;
-    } else if (secondMax === undefined && value < max) {
+    } else if (secondMax === undefined && value <= max) {
       secondMax = value;
-    } else if (value > max) {
+    } else if (value >= max) {
       secondMax = max;
       max = value;
     }
