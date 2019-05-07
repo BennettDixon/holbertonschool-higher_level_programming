@@ -5,9 +5,6 @@ let secondMax;
 
 process.argv.forEach(function (value, index) {
   value = parseInt(value);
-  if (isNaN(value)) {
-    return;
-  }
   if (index > 1) {
     if (max === undefined) {
       max = value;
