@@ -7,7 +7,7 @@ class Rectangle {
     }
   }
 
-  print (print_c = 'X') {
+  print (printC = 'X') {
     let i;
     let j;
     let build = '';
@@ -16,7 +16,7 @@ class Rectangle {
         build += '\n';
       }
       for (j = 0; j < this.width; j++) {
-        build += print_c;
+        build += printC;
       }
     }
     console.log(build);
