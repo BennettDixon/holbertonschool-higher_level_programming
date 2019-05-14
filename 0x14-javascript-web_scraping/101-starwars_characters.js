@@ -17,7 +17,7 @@ function getCharName (charUrl) {
   });
 }
 
-function doParse() {
+function doParse () {
   let movie = process.argv[2];
   let url = 'https://swapi.co/api/films/' + movie;
 
@@ -35,8 +35,8 @@ function doParse() {
 }
 
 doParse();
-setTimeout(function(){
-  //some stuff
+setTimeout(function () {
+  // some stuff
   order.forEach(function (url) {
     console.log(responses[url]);
   });
