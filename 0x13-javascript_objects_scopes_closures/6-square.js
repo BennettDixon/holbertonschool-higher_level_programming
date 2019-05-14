@@ -5,6 +5,9 @@ class Square extends Rectangle {
     super(size, size);
   }
   charPrint (c) {
+    if (typeof c === 'undefined') {
+      c = 'X';
+    }
     this.print(c);
   }
 }
