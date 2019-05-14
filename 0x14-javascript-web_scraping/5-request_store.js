@@ -11,7 +11,7 @@ request(url, function (error, response, body) {
     console.log(error);
   } else {
     filesystem.writeFile(filepath, body, 'utf8', function (err, data) {
-      if (error != null) {
+      if (err != null) {
         console.log(error);
       }
     });
