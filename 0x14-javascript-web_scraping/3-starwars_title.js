@@ -2,17 +2,22 @@
 const process = require('process');
 const request = require('request');
 
-let episode = process.argv[2];
+let episode = parseInt(process.argv[2]);
 let url = 'http://swapi.co/api/films/';
 let data;
 
 request(url, function (error, response, body) {
-  data = JSON.parse(body);
-  data['results'].forEach(function(obj) {
-    let ep_id = obj['episode_id'].toString(10);
-    if (ep_id === episode) {
-      console.log(obj['title']);
-      process.exit(0);
-    }
-  });
+  if (error != null) {
+    console.log(error);
+  } else {
+    console.log(body);
+    data = JSON.parse(body);
+    let counter = 1;
+    data['results'].forEach(function (obj) {
+      if (counter === episode) {
+        console.log(obj['title']);
+      }
+      counter++;
+    });
+  }
 });
