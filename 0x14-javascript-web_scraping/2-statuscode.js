@@ -1,6 +1,5 @@
 #!/usr/bin/node
 const process = require('process');
-const filesystem = require('fs');
 const request = require('request');
 
 let url = process.argv[2];
