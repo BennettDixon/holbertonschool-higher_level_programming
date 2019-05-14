@@ -10,14 +10,12 @@ request(url, function (error, response, body) {
   if (error != null) {
     console.log(error);
   } else {
-    console.log(body);
     data = JSON.parse(body);
-    let counter = 1;
     data['results'].forEach(function (obj) {
-      if (counter === episode) {
+      let epId = obj['episode_id']
+      if (epId === episode) {
         console.log(obj['title']);
       }
-      counter++;
     });
   }
 });
