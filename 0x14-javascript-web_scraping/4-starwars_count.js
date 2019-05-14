@@ -2,15 +2,23 @@
 const process = require('process');
 const request = require('request');
 
-let urlType = process.argv[2];
-let url = 'http://swapi.co/api/people/18';
+let url = process.argv[2];
 let data;
 
 request(url, function (error, response, body) {
   if (error != null) {
     console.log(error);
   } else {
+    let movies = 0;
     data = JSON.parse(body);
-    console.log(data['films'].length);
+    data['results'].forEach(function (result) {
+      result['characters'].forEach(function (character) {
+          let urlSplit = character.split('/');
+          if (urlSplit[urlSplit.length - 2] === '18') {
+            movies++;
+          }
+      });
+    });
+    console.log(movies);
   }
 });
