@@ -12,7 +12,7 @@ request(url, function (error, response, body) {
   } else {
     data = JSON.parse(body);
     data['results'].forEach(function (obj) {
-      let epId = obj['episode_id']
+      let epId = obj['episode_id'];
       if (epId === episode) {
         console.log(obj['title']);
       }
