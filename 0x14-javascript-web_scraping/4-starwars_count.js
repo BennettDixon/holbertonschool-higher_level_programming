@@ -13,10 +13,10 @@ request(url, function (error, response, body) {
     data = JSON.parse(body);
     data['results'].forEach(function (result) {
       result['characters'].forEach(function (character) {
-          let urlSplit = character.split('/');
-          if (urlSplit[urlSplit.length - 2] === '18') {
-            movies++;
-          }
+        let urlSplit = character.split('/');
+        if (urlSplit[urlSplit.length - 2] === '18') {
+          movies++;
+        }
       });
     });
     console.log(movies);
