@@ -7,5 +7,4 @@ $.get(url, function(body) {
   films.forEach(element => {
     list.append("<li>" + element["title"] + "</li>\n");
   });
-  $("#character").html(name);
 });
