@@ -1,3 +1,3 @@
-let header = $("header");
-console.log(header.color);
-header.css({ color: "#FF0000" });
+const $ = window.$;
+let header = $('header');
+header.css({ color: '#FF0000' });
